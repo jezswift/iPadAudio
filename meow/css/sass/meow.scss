@@ -1,0 +1,132 @@
+//@extend-elements
+//original selectors
+//.button:active, .button.active
+%extend_1 {
+    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+    box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+    position: relative;
+    top: 1px;
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family: Arial;
+    font-size: 16px;
+}
+h1 {
+    font-size: 24px;
+    width: 820px;
+    margin: 20px auto;
+}
+h2 {
+    margin: 10px 0 5px;
+}
+.wrapper {
+    margin: 20px auto;
+    width: 800px;
+    background: #ccc;
+    padding: 20px;
+    audio {
+        width: 800px;
+    }
+}
+.button {
+    width: 50px;
+    text-align: center;
+    display: inline-block;
+    white-space: nowrap;
+    background-color: #ccc;
+    background-image: linear-gradient(top, #eee, #ccc);
+    border: 1px solid #777;
+    padding: 6px 16px;
+    margin: 0 5px;
+    font-family: Arial, Helvetica;
+    text-decoration: none;
+    color: #333;
+    //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+    text-shadow: 0 1px 0 rgba(255,255,255,.8);
+    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+    border-radius: .2em;
+    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+    box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+    &:hover {
+        background-color: #ddd;
+        background-image: linear-gradient(top, #fafafa, #ddd);
+    }
+    &:active {
+        @extend %extend_1;
+    }
+    &.active {
+        @extend %extend_1;
+    }
+    &:focus {
+        outline: 0;
+        background: #fafafa;
+    }
+    &:before {
+        background: #ccc;
+        background: rgba(0,0,0,.1);
+        float: left;
+        width: 1em;
+        text-align: center;
+        font-size: 1.5em;
+        margin: 0 1em 0 -1em;
+        padding: 0 .2em;
+        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+        box-shadow: 1px 0 0 rgba(0,0,0,.5), 2px 0 0 rgba(255,255,255,.5);
+        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+        border-radius: .15em 0 0 .15em;
+        pointer-events: none;
+    }
+}
+.progress {
+    display: inline-block;
+    font-family: monospace;
+    margin: 0 5px;
+    min-width: 50px;
+}
+.sprite {
+    display: inline-block;
+    font-family: monospace;
+    margin: 0 5px;
+}
+.progressbar {
+    position: relative;
+    width: 350px;
+    height: 20px;
+    margin: 0 5px;
+    border: 1px solid #bbb;
+    display: inline-block;
+    vertical-align: middle;
+    .handle {
+        position: absolute;
+        width: 10px;
+        height: 24px;
+        top: -2px;
+        margin-left: -5px;
+        background: #fff;
+        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+        box-shadow: 0 0 5px rgba(0,0,0,0.4);
+        z-index: 3;
+    }
+    .buffer {
+        position: absolute;
+        left: 0;
+        width: 0;
+        height: 20px;
+        background: #aaa;
+        z-index: 1;
+    }
+    .bar {
+        position: absolute;
+        left: 0;
+        width: 0;
+        height: 20px;
+        background: #777;
+        z-index: 2;
+    }
+}
